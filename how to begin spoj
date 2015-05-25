@@ -1,0 +1,92 @@
+Source: https://thevc.wordpress.com/2007/12/19/spoj-tips/
+
+
+
+I`m going to list a few tips for programming on the Sphere Online Judge (SPOJ). SPOJ is a website where you can practice solving ACM-style problems. Its meant for practicing for the ACM ICPC, but its quite fun doing it even if you are not gonna participate in ICPC. Some of the stuff you get from doing SPOJ problems:
+
+Better understanding of algorithms you learned in class
+More familiarity with the programming language of your choice
+Problem solving skills
+Lots of fun :) [ it can get very addictive ]
+So how do you start? First register at SPOJ. After that, you can start solving problems right away. One of the best things about online judges is their instant feedback. You dont have to wait for your program to get judged!
+
+When you submit a program, the judge takes it and runs it on their computer, giving a data file as input to your program. Your program should read input from standard input and write output to standard output. No files! The judge will redirect the output of your program to a file. It`ll then compare this output file and the standard output file, after stripping away extra blanks and newlines. If the files match exactly, your program gets accepted. After you submit your program, you can see the result on the Spoj Status page. What the judge results mean:
+
+Accepted – The output from your program perfectly matched the required output. This problem is then added to your list of accepted problems.
+Time Limit Exceeded – A very familiar judge result on Spoj. It means your program took too long to execute. Try optimizing your program and check for accidental infinite loops.
+Wrong Answer – Your program ran on time, but it did not produce the required output.
+Compile Error -Your program had some syntax error. For these errors, click on the text “Compile Error” in the judge result. It`ll take you a page which will list the compile errors and their line numbers in your program.
+Runtime Error – This is usually accompanied by a code like SIGSEV. It can happen due to a lot of reasons, but the two most common are using too much memory ( you can use around 6000*6000*4 bytes of memory ) and not remembering to use int main() and return 0 in your programs. Other reasons can be there like Divide by Zero.
+Lets take a look at solving an introductory problem in SPOJ – TEST. It allows you to get familiar with the SPOJ interface like its judge etc. You can access the problem here. The question asks you to read integers from the standard input and print them to standard output, until you come across the number 42. Then you stop doing anything. The code for it:
+
+#include <stdio.h> //Header needed to access scanf, printf in C
+
+int main() // Main has to be declared as int in SPOJ - its compulsory
+
+{
+
+int x;
+
+while(1) // Keep reading and writing numbers until you come across the number 42
+
+{
+
+scanf("%d",&x); // Get the number from standard input
+
+if(x==42) break; // If its 42, stop processing
+
+printf("%d\n",x); // else, print it to standard output
+
+}
+
+return 0; // IMPORTANT - needed for your programs to run correctly
+
+}
+You can submit the program here. Once it says successfully submitted, check on the status here. There are other ways to submit and check status of course. I`m just outlining one of them here. Some easy SPOJ problems you can start on:
+
+Adding Reversed Numbers
+
+Candy I
+
+Making Book
+
+Basically speaking
+
+Just take care in all the problems to see to it that your output format matches required output format perfectly. One of the problems most people try very early on in SPOJ is Next Palindrome. Its a deceptive problem , seemingly very simple. But it cannot be solved by the brute force approach of checking every number from given number and seeing if it is a palindrome. You have to treat the number as a string and do the problem. Definitely not a beginner problem, so dont get discouraged if you try this and keep getting TLE. You have been warned :)
+
+Some tips for solving problems:
+
+If the problem gives you a sequence and asks you to find nth term in it, try this.
+If your believe your approach is right but you keep getting WAs, look for math functions like pow in your code and replace them with your own functions which do the same thing.
+Try using scanf and printf wherever possible instead of cin and cout in C++ programs. cin and cout are around three times slower than scanf and printf.
+There is no long double in SPOJ – double is max allocation. Using long double can get u WAs.
+For very large integers, use long long – capable of storing up to 10^18. Its format specifier is scanf, printf is %lld.
+There is no strrev() in SPOJ. Write your own function for reversing a string.
+strlen() is a very expensive function. Use it sparingly.
+Dont use:
+
+for(int i=0;i<strlen(str);i++)
+
+{ //do something }
+
+Instead use
+int l=strlen(str);
+
+for(int i=0;i<l;i++)
+
+{ //do something }
+
+Each time you call strlen, it manually goes through the array counting each character. Suppose the string length is 1000. The first loop will take 1000*1000 operations as strlen is called for every iteration. The second loop takes only 1000 operations ( excluding what goes on inside the loop of course )
+
+Don’t use long long everywhere in your program. Its very slow compared to int.
+Now about the ranking in SPOJ. As you begin solving problems SPOJ ranks you among the 4000+ programmers from across the world on SPOJ. Your ranking depends only on the problems you solve. It does not depend on the number of submissions for each problem. This is a good thing , since you can keep optimizing and submitting for the same problem , without worrying about it affecting your rank. You can see your rank in India here.
+
+Your rank is based on the number of points you have. For each problem you solve ( by solve I mean successfully get it accepted ) you get some points. The points for a problem are calculated as follows:
+
+80/( 40 + number of people who have solved it )
+
+More people solve easier problems , so its points goes down fast and thus you cant get ahead in SPOJ rankings by only solving easy problems. Your cumulative score is dynamic which means it changes as each problem you’ve solved gets solved by one more person. So you need to keep solving problems to maintain your points total. There is something called Challenges in SPOJ, I`ll touch on that in another post.
+
+About these ads
+Spread the word!
+
